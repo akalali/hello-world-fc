@@ -21,6 +21,12 @@ include(CMakeExternals/Poco.cmake)
 
 FetchContent_MakeAvailable(Poco)
 
+# Turn on using solution folders
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+
+# Set third party libraries solution folders
+set_property(TARGET Foundation PROPERTY FOLDER "ThirdParty")
+
 # Setup output directories
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY
     ${PROJECT_BINARY_DIR}/bin CACHE PATH "Single Directory for all Executables."

@@ -13,13 +13,16 @@ set(SOURCE_FILES
 add_library(${PROJECT_NAME} STATIC ${HEADER_FILES} ${SOURCE_FILES})
 add_library(lib::PocoTimer ALIAS ${PROJECT_NAME})
 
+# Set libs solution folder
+set_property(TARGET ${PROJECT_NAME} PROPERTY FOLDER "Libs")
+
 # Specify include directory to use when compiling
 target_include_directories(${PROJECT_NAME}
   PUBLIC
     ${PROJECT_SOURCE_DIR}/include
 )
 
-# Specify Poco library to use when linking
+# Specify Poco::Foundation library to use when linking
 target_link_libraries(${PROJECT_NAME}
   PUBLIC
     Foundation
